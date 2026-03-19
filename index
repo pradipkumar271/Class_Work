@@ -1,1 +1,44 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Front Page</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; }
+        .page {
+            width: 210mm; height: 297mm; background: white; padding: 50px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); box-sizing: border-box;
+            border: 8px double #333; position: relative;
+        }
+        .header { text-align: center; margin-top: 60px; }
+        h1 { font-size: 32pt; color: #1a73e8; text-transform: uppercase; }
+        .info-section { display: flex; justify-content: space-between; margin-top: 150px; }
+        .label { font-weight: bold; text-decoration: underline; }
+        .footer { position: absolute; bottom: 60px; width: calc(100% - 100px); text-align: center; }
+        @media print { body { background: none; } .print-btn { display: none; } }
+        .print-btn { position: fixed; top: 10px; right: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">Print/PDF</button>
+    <div class="page">
+        <div class="header">
+            <h1 id="projTitle">Title</h1>
+        </div>
+        <div class="info-section">
+            <div><span class="label">SUBMITTED BY:</span><p id="studentName"></p></div>
+            <div><span class="label">GUIDED BY:</span><p id="guideName"></p></div>
+        </div>
+        <div class="footer"><div id="college"></div></div>
+    </div>
+    <script>
+        // Update this object
+        const data = { title: "Project", name: "Name", guide: "Guide", college: "College" };
+        document.getElementById('projTitle').innerText = data.title;
+        document.getElementById('studentName').innerText = data.name;
+        document.getElementById('guideName').innerText = data.guide;
+        document.getElementById('college').innerText = data.college;
+    </script>
+</body>
+</html>
